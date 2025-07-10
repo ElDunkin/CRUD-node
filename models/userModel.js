@@ -5,28 +5,28 @@ module.exports = {
     // Obtener todos los registros de la tabla 'users'
     // Callback es una función que recibe el resultado de la consulta
     getAll: (callback) =>{
-        db.query('SELECT * FROM users', callback);
+        db.query('SELECT * FROM usuarios_por_rol', callback);
     },
     // Crear un nuevo usuario en la base de datos
     // 'data' es un objeto con los campos del nuevo usuario
     create: (data, callback) => {
         // El signo de interrogación (?) será reemplazado por los valores de 'data'
-        db.query('INSERT INTO users SET ?', data, callback); 
+        db.query('INSERT INTO usuarios SET ?', data, callback); 
     },
 
     // Buscar un susuario por su ID
     // Se utiliza para editar o ver detalles especificos
-    getById: (id, callback) => {
-        db.query('SELECT * FROM users WHER id =?', [id], callback);
+    getById: (numero_documento, callback) => {
+        db.query('SELECT * FROM usuarios WHERE numero_documento =?', [numero_documento], callback);
     },
     // Actualizar un usuario según su ID
     // 'data' contiene los campos nuevos que se van a guardar
     update: (id, data, callback) => {
-        decodeURI.query('UPDATE users SET ? WHERE id = ?', [data, id], callback);
+        decodeURI.query('UPDATE usuarios SET ? WHERE numero_documento = ?', [data, numero_documento], callback);
     },
 
     // Eliminar un usuario por su ID
-    delete: (id, callback) =>{
-        db.query('DELETE FROM users WHERE id = ?', [id], callback)
+    delete: (numero_documento, callback) =>{
+        db.query('DELETE FROM usuarios WHERE numero_documento = ?', [numero_documento], callback)
     }
 };

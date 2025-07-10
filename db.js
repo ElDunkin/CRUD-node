@@ -4,7 +4,7 @@ const conn = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'crud_mvc'
+    database: 'petfriendly_db'
 });
 
 conn.connect((err) => {
